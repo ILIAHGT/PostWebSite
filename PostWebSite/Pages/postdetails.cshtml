@@ -1,0 +1,25 @@
+﻿@page
+@model PostWebSite.Pages.postdetailModel
+@using PostWebSite.Models
+<div class="card">
+   <div class="card-header">
+       <h2>
+           @Model.post.Title
+       </h2>
+   </div>
+    <div class="card-body">
+        <p>@Model.post.Text</p>
+        <span class="badge rounded-pill text-bg-primary">@Model.post.Tag.Name</span>
+    </div>
+    <div class="card-footer">
+        <h4><cite title="@Model.post.AuthorName">@Model.post.AuthorName</cite></h4>
+            <h6>@Model.post.PulishedDate.ToString("D")</h6>
+    </div>
+
+
+     
+
+
+
+
+</div>

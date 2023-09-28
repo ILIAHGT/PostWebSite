@@ -1,0 +1,36 @@
+﻿@page
+@model PostWebSite.Pages.CreatePostModel
+@{
+}
+
+
+<form method="post">
+    <div class="form-group col-6">
+        <label for="exampleInputEmail1">نام نویسنده</label>
+        <input required asp-for="Post.AuthorName" class="form-control"  aria-describedby="emailHelp" placeholder="مثل: علی احمدی">
+        <small id="emailHelp" class="form-text text-muted">نام نویسنده همراه پست، به نمایش درخواهد آمد.</small>
+    </div>
+    <div class="form-group col-6">
+        <label>تیتر</label>
+        <input required asp-for="Post.Title" class="form-control" placeholder="مثل: رفتن کروکودیل به استخر">
+    </div>
+    <div class="form-check">
+        <label >تیتر</label>
+        <TextArea required Asp-for="Post.Text" class="form-control" placeholder="مثل: کروکودیلی به شهر رفت و ..."></TextArea>
+    </div>
+
+    <div class="form-check">
+        <label>تگ نوشته</label>
+        <select asp-for="Post.Tag.Id">
+            @foreach(var tag in Model.TagList)
+            {
+                <option value="@tag.Id">
+                    @tag.Name
+                </option>
+            }
+        </select>
+
+
+    </div>
+    <button type="submit" class="btn btn-primary">انتشار پست</button>
+</form>

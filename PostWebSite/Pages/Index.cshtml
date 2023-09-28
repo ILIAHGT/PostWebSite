@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">آخرین پست‌ها</h1>
+</div>
+<br />
+
+<hr />
+<br />
+
+<div class="posts">
+
+    @foreach (var post in Model.PostList)
+    {
+        <div class="card" style="">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/postdetails?id=@post.Id">@post.Title</a></h5>
+                <a href="#" class="card-link">@post.Tag.Name</a>
+              
+                <p class="card-text">@post.Text</p>
+
+                <h6 class="card-subtitle mb-2 text-muted">منتشر شده در: @post.PulishedDate</h6>
+                <h6 class="card-subtitle mb-2 text-muted">نویسنده: @post.AuthorName</h6>
+                <a href="/createpost?id=@post.Id" class="btn btn-primary card-link">edit</a>
+            </div>
+            
+        </div>
+    }
+
+
+    <style>
+        .card{
+            margin: 20px;
+        }
+    </style>
+
+</div>
